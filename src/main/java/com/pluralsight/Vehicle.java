@@ -1,8 +1,4 @@
 package com.pluralsight;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Vehicle {
     private int vin;
     private int year;
@@ -20,74 +16,7 @@ public class Vehicle {
         this.model = model;
         this.vehicleType = vehicleType;
         this.color = color;
-        this.odometer = 0;
-        this.priceRange = priceRange;
-    }
-
-
-    public int getVin() {
-        return vin;
-    }
-
-    public void setVin(int vin) {
-        this.vin = vin;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public String getMake() {
-        return make;
-    }
-
-    public void setMake(String make) {
-        this.make = make;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public String getVehicleType() {
-        return vehicleType;
-    }
-
-    public void setVehicleType(String vehicleType) {
-        this.vehicleType = vehicleType;
-
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public int getOdometer() {
-        return odometer;
-    }
-
-    public void setOdometer(int odometer) {
         this.odometer = odometer;
-    }
-
-    public double getPriceRange() {
-        return priceRange;
-    }
-
-    public void setPriceRange(double priceRange) {
         this.priceRange = priceRange;
     }
-
 }

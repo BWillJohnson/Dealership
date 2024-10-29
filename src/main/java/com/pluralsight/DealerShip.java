@@ -8,7 +8,7 @@ public class DealerShip {
     private String address;
     private String cell;
 
-    private static ArrayList<DealerShip> inventory = new ArrayList<>();
+    private static List<Vehicle> inventory;
 
 
     public DealerShip(String name, String address, String cell) {
@@ -39,10 +39,12 @@ public class DealerShip {
     public List<Vehicle> getAllVehicles() {
         return getAllVehicles();
     }
-    public void addVehicle() {
-
+    public void addVehicle(Vehicle vehicle) {
+        inventory.add(vehicle);
+        System.out.println(vehicle + "Notice Vehicle has been added to Dealership inventory.");
     }
-    public void removeVehicle(){
+    public void removeVehicle(Vehicle vehicle){
+
     }
     @Override
     public String toString() {

@@ -2,16 +2,16 @@ package com.pluralsight;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class DealerShipFile_Manager {
     private static final String FILE_NAME = "dealership.csv";
-    private static final List<Vehicle>inventory = new ArrayList<Vehicle>();
-    private static List<DealerShip> dealerShip;
 
-
-    public DealerShip getDealerShip(String fileName){
+    public DealerShip getDealerShip(){
+        DealerShip dealerShip = null;
+        List<Vehicle> vehicles = new ArrayList<>();
         try  {
             BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME));
             String line;
@@ -22,8 +22,8 @@ public class DealerShipFile_Manager {
                     String name = parts[0];
                     String address = parts[1];
                     String cell = parts[2];
-                    DealerShip dealerShip1 = new DealerShip(name,address,cell);
-                    dealerShip.add(dealerShip1);
+                    dealerShip = new DealerShip(name,address,cell);
+
 
                 }
             }
@@ -41,16 +41,21 @@ public class DealerShipFile_Manager {
                     double price = Double.parseDouble(parts[7]);
 
                     Vehicle vehicle = new Vehicle(vin,year,make,model,vehicleType,color,odometer,price);
-                    inventory.add(vehicle);
+                    vehicles.add(vehicle);
                 }
 
             }
         } catch (Exception e) {
-
+            System.err.println("Notice the file doesn't exist!");
         }
-        return getDealerShip(FILE_NAME);
+
+        for (Vehicle vehicle : vehicles) {
+            dealerShip.addVehicle(vehicle);
+        }
+        return dealerShip;
     }
     public void saveDealerShip(String dealerShip){
+
         System.out.println(FILE_NAME);
 
     }
