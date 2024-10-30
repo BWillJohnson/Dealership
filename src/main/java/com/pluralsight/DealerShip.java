@@ -20,9 +20,11 @@ public class DealerShip {
 
     public List<Vehicle> getVehiclesByPrice(double min, double max) {
         List<Vehicle>vehiclePrices = new ArrayList<>();
+        double lowerPrice = 0;
+        double higherPrice = 0;
         for (Vehicle vehicle : inventory) {
-            if (vehicle.getPriceRange(double min) && vehicle.getPriceRange(max)){
-
+            if (vehiclePrices.equals(lowerPrice) && vehiclePrices.equals(higherPrice)){
+                System.out.println(lowerPrice-higherPrice);
             }
         }
 
@@ -31,13 +33,13 @@ public class DealerShip {
     public List<Vehicle> getVehiclesByMakeModel(String make,String model){
         return getVehiclesByMakeModel(make,model);
     }
-    public List<Vehicle> getVehiclesByYear(int min,int max){
+    public List<Vehicle> getVehiclesByYear(double min,double max){
         return getVehiclesByYear(min,max);
     }
     public List<Vehicle> getVehiclesByColor(String color){
         return getVehiclesByColor(color);
     }
-    public List<Vehicle> getVehiclesByMileage(int min, int max){
+    public List<Vehicle> getVehiclesByMileage(double min, double max){
         return getVehiclesByMileage(min,max);
     }
     public List<Vehicle> getVehicleByType(String vehicleType){
@@ -57,4 +59,6 @@ public class DealerShip {
     public String toString() {
         return name + " | " + address + " | " + cell;
     }
+
+
 }

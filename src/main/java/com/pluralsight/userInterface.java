@@ -65,7 +65,7 @@ public class userInterface {
         System.out.println("Enter model: ");
         String model = response.nextLine();
 
-        List<Vehicle> vehicles = dealerShip.getVehiclesByMakeModel(make,model);
+        List<Vehicle> vehicles = dealerShip.getVehiclesByMakeModel(make, model);
         displayVehicles(vehicles);
 
         response.close();
@@ -73,30 +73,51 @@ public class userInterface {
 
     public void processGetByYearRequest() {
         Scanner response = new Scanner(System.in);
-        System.out.println("Enter year: ");
-        String year = response.nextLine();
-        String newerYear = response.nextLine();
-        List<Vehicle> vehicles = dealerShip.getVehiclesByYear(year);
+        System.out.println("Enter previous year: ");
+        double vehiclePreviousYear = response.nextDouble();
+        System.out.println("Enter preferred year");
+        double currentYear = response.nextDouble();
+        List<Vehicle> vehicles = dealerShip.getVehiclesByYear(vehiclePreviousYear,currentYear);
         displayVehicles(vehicles);
 
-
+        response.close();
     }
 
     public void processGetByYColorRequest() {
+        Scanner response = new Scanner(System.in);
+        System.out.println("Enter Color: ");
+        String colorOfVehicle = response.nextLine();
+        List<Vehicle> vehicles = dealerShip.getVehiclesByColor(colorOfVehicle);
+        displayVehicles(vehicles);
+
+        response.close();
     }
 
     public void processGetByMileageRequest() {
+        Scanner response = new Scanner(System.in);
+        System.out.println("Enter Mileage: ");
+        double vehicleMileage = response.nextDouble();
+        List<Vehicle> vehicles = dealerShip.getVehiclesByMileage(vehicleMileage);
+        displayVehicles(vehicles);
 
+        response.close();
     }
 
     public void processGetByVehicleTypeRequest() {
+        Scanner response = new Scanner(System.in);
+        System.out.println("Enter VehicleType: ");
+        String vehicleType = response.nextLine();
+        List<Vehicle> vehicles = dealerShip.getVehicleByType(vehicleType);
+        displayVehicles(vehicles);
 
-
+        response.close();
     }
 
     public void processGetAllVehiclesRequest() {
         List<Vehicle> allVehicles = dealerShip.getAllVehicles();
         displayVehicles(allVehicles);
+
+
     }
 
     public void processAddVehiclesRequest() {

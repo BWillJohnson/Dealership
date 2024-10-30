@@ -1,15 +1,15 @@
 package com.pluralsight;
 public class Vehicle {
-    private int vin;
-    private int year;
+    private double vin;
+    private double year;
     private String make;
     private String model;
     private  String vehicleType;
     private String color;
-    private  int odometer;
+    private  double odometer;
     private double price;
 
-    public Vehicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer, double priceRange) {
+    public Vehicle(double vin, double year, String make, String model, String vehicleType, String color, double odometer, double price) {
         this.vin = vin;
         this.year = year;
         this.make = make;
@@ -20,68 +20,68 @@ public class Vehicle {
         this.price = price;
     }
 
-    public int getVin() {
+    public double getVin() {
         return vin;
     }
 
-    public void setVin(int vin) {
-        this.vin = vin;
-    }
-
-    public int getYear() {
+    public double getYear() {
         return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
     }
 
     public String getMake() {
         return make;
     }
 
-    public void setMake(String make) {
-        this.make = make;
-    }
-
     public String getModel() {
         return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
     }
 
     public String getVehicleType() {
         return vehicleType;
     }
 
-    public void setVehicleType(String vehicleType) {
-        this.vehicleType = vehicleType;
-    }
-
     public String getColor() {
         return color;
+    }
+
+    public double getOdometer() {
+        return odometer;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setVin(double vin) {
+        this.vin = vin;
+    }
+
+    public void setYear(double year) {
+        this.year = year;
+    }
+
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setVehicleType(String vehicleType) {
+        this.vehicleType = vehicleType;
     }
 
     public void setColor(String color) {
         this.color = color;
     }
 
-    public int getOdometer() {
-        return odometer;
-    }
-
-    public void setOdometer(int odometer) {
+    public void setOdometer(double odometer) {
         this.odometer = odometer;
     }
 
-    public double getPriceRange() {
-        return price;
-    }
-
-    public void setPriceRange(double priceRange) {
-        this.price= price;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override
