@@ -38,7 +38,7 @@ public class userInterface {
                 case "7" -> processGetAllVehiclesRequest();
                 case "8" -> processAddVehiclesRequest();
                 case "9" -> processRemoveVehicleRequest();
-                case "X" -> running = false;
+                case "0" -> running = false;
                 default -> System.out.println("Invalid option");
             }
         }
@@ -73,7 +73,7 @@ public class userInterface {
 
     public void processGetByYearRequest() {
         Scanner response = new Scanner(System.in);
-        System.out.println("Enter previous year: ");
+        System.out.println("Enter init year: ");
         double vehiclePreviousYear = response.nextDouble();
         System.out.println("Enter preferred year");
         double currentYear = response.nextDouble();
@@ -95,9 +95,12 @@ public class userInterface {
 
     public void processGetByMileageRequest() {
         Scanner response = new Scanner(System.in);
-        System.out.println("Enter Mileage: ");
-        double vehicleMileage = response.nextDouble();
-        List<Vehicle> vehicles = dealerShip.getVehiclesByMileage(vehicleMileage);
+        System.out.println("Enter initial Mileage: ");
+        double minVehicleMileage = response.nextDouble();
+        System.out.println("Enter desired Mileage: ");
+        double maxVehicleMileage = response.nextDouble();
+
+        List<Vehicle> vehicles = dealerShip.getVehiclesByMileage(minVehicleMileage,maxVehicleMileage);
         displayVehicles(vehicles);
 
         response.close();
@@ -107,7 +110,7 @@ public class userInterface {
         Scanner response = new Scanner(System.in);
         System.out.println("Enter VehicleType: ");
         String vehicleType = response.nextLine();
-        List<Vehicle> vehicles = dealerShip.getVehicleByType(vehicleType);
+        List<Vehicle> vehicles = dealerShip.getVehiclesByType(vehicleType);
         displayVehicles(vehicles);
 
         response.close();
@@ -132,6 +135,7 @@ public class userInterface {
         DealerShipFile_Manager fileManager = new DealerShipFile_Manager();
         dealerShip = fileManager.getDealerShip();
     }
+
 
     private void displayVehicles(List<Vehicle> vehicles) {
         for (Vehicle vehicle : vehicles) {

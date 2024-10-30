@@ -6,17 +6,17 @@ public class Vehicle {
     private String model;
     private  String vehicleType;
     private String color;
-    private  double odometer;
+    private  double mileage;
     private double price;
 
-    public Vehicle(double vin, double year, String make, String model, String vehicleType, String color, double odometer, double price) {
+    public Vehicle(double vin, double year, String make, String model, String vehicleType, String color, double mileage, double price) {
         this.vin = vin;
         this.year = year;
         this.make = make;
         this.model = model;
         this.vehicleType = vehicleType;
         this.color = color;
-        this.odometer = odometer;
+        this.mileage = mileage;
         this.price = price;
     }
 
@@ -44,9 +44,6 @@ public class Vehicle {
         return color;
     }
 
-    public double getOdometer() {
-        return odometer;
-    }
 
     public double getPrice() {
         return price;
@@ -75,13 +72,16 @@ public class Vehicle {
     public void setColor(String color) {
         this.color = color;
     }
-
-    public void setOdometer(double odometer) {
-        this.odometer = odometer;
-    }
-
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public double getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(double mileage) {
+        this.mileage = mileage;
     }
 
     @Override
@@ -93,8 +93,8 @@ public class Vehicle {
                 ", model='" + model + '\'' +
                 ", vehicleType='" + vehicleType + '\'' +
                 ", color='" + color + '\'' +
-                ", odometer=" + odometer +
-                ", priceRange=" + price +
+                ", mileage=" + mileage +
+                ", price=" + price +
                 '}';
     }
 }
