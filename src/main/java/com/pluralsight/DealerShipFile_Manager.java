@@ -26,6 +26,7 @@ public class DealerShipFile_Manager {
                     dealerShip = new DealerShip(name,address,cell);
 
 
+
                 }
             }
 
