@@ -46,14 +46,39 @@ public class userInterface {
     }
 
     public void processGetByPriceRequest() {
+        Scanner response = new Scanner(System.in);
+        System.out.println("Enter minimum price: ");
+        double minPrice = response.nextDouble();
+        System.out.println("Enter your maximum price: ");
+        double maxPrice = response.nextDouble();
 
+        List<Vehicle> vehicles = dealerShip.getVehiclesByPrice(minPrice, maxPrice);
+        displayVehicles(vehicles);
+
+        response.close();
     }
 
     public void processGetByMakeModelRequest() {
+        Scanner response = new Scanner(System.in);
+        System.out.println("Enter make: ");
+        String make = response.nextLine();
+        System.out.println("Enter model: ");
+        String model = response.nextLine();
 
+        List<Vehicle> vehicles = dealerShip.getVehiclesByMakeModel(make,model);
+        displayVehicles(vehicles);
+
+        response.close();
     }
 
     public void processGetByYearRequest() {
+        Scanner response = new Scanner(System.in);
+        System.out.println("Enter year: ");
+        String year = response.nextLine();
+        String newerYear = response.nextLine();
+        List<Vehicle> vehicles = dealerShip.getVehiclesByYear(year);
+        displayVehicles(vehicles);
+
 
     }
 
@@ -65,6 +90,7 @@ public class userInterface {
     }
 
     public void processGetByVehicleTypeRequest() {
+
 
     }
 

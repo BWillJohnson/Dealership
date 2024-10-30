@@ -19,6 +19,13 @@ public class DealerShip {
     }
 
     public List<Vehicle> getVehiclesByPrice(double min, double max) {
+        List<Vehicle>vehiclePrices = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getPriceRange(double min) && vehicle.getPriceRange(max)){
+
+            }
+        }
+
         return getVehiclesByPrice(min,max);
     }
     public List<Vehicle> getVehiclesByMakeModel(String make,String model){
