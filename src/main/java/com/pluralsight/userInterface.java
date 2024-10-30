@@ -1,12 +1,13 @@
 package com.pluralsight;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class userInterface {
     private DealerShip dealerShip;
 
-    public userInterface(DealerShip dealerShip) {
-        this.dealerShip = dealerShip;
+    public userInterface() {
+
     }
 
     public void display(Scanner scanner) {
@@ -91,7 +92,8 @@ public class userInterface {
     }
 
     public void processGetAllVehiclesRequest() {
-
+        List<Vehicle> allVehicles = dealerShip.getAllVehicles();
+        displayVehicles(allVehicles);
     }
 
     public void processAddVehiclesRequest() {
@@ -103,10 +105,12 @@ public class userInterface {
     }
 
     private void init() {
-        DealerShipFile_Manager carWorldDealerShip = new DealerShipFile_Manager();
-        carWorldDealerShip.getDealerShip();
+        DealerShipFile_Manager fileManager = new DealerShipFile_Manager();
+        dealerShip = fileManager.getDealerShip();
     }
-    private void displayVehicles(DealerShip dealerShip){
-       g
+    private void displayVehicles(List <Vehicle> vehicles){
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicles);
+        }
     }
 }
