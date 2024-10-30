@@ -9,6 +9,7 @@ import java.util.List;
 public class DealerShipFile_Manager {
     private static final String FILE_NAME = "dealership.csv";
 
+
     public DealerShip getDealerShip(){
         DealerShip dealerShip = null;
         List<Vehicle> vehicles = new ArrayList<>();
