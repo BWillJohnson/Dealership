@@ -19,4 +19,18 @@ public class Vehicle {
         this.odometer = odometer;
         this.priceRange = priceRange;
     }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "vin=" + vin +
+                ", year=" + year +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", vehicleType='" + vehicleType + '\'' +
+                ", color='" + color + '\'' +
+                ", odometer=" + odometer +
+                ", priceRange=" + priceRange +
+                '}';
+    }
 }

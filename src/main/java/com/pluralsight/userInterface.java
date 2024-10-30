@@ -10,62 +10,39 @@ public class userInterface {
 
     }
 
-    public void display(Scanner scanner) {
+    public void display() {
         init();
-        Scanner myScan = new Scanner(System.in);
-
-        boolean input = true;
-        while (input) {
-            System.out.println("Dealership \n");
-            System.out.println("Choose an option:");
-            System.out.println("1) processGetByPriceRequest");
-            System.out.println("2) processGetByMakeModelRequest");
-            System.out.println("3) processGetByYearRequest");
-            System.out.println("4) processGetByColorRequest");
-            System.out.println("5) processGetByMileageRequest");
-            System.out.println("6) processGetByVehicleTypeRequest");
-            System.out.println("7) processGetAllVehiclesRequest");
-            System.out.println("8) processAddVehiclesRequest");
-            System.out.println("9) processRemoveVehicleRequest");
-            System.out.println("10) Thank you for choosing CarWorld enterprise. \n");
-
-            String scan = scanner.nextLine();
-            scanner.nextLine();
-
-            switch (scan) {
-                case "1":
-                    processGetByPriceRequest();
-                    break;
-                case "2":
-                    processGetByMakeModelRequest();
-                    break;
-                case "3":
-                    processGetByYearRequest();
-                    break;
-                case "4":
-                    processGetByYColorRequest();
-                    break;
-                case "5":
-                    processGetByMileageRequest();
-                    break;
-                case "6":
-                    processGetByVehicleTypeRequest();
-                    break;
-                case "7":
-                    processGetAllVehiclesRequest();
-                    break;
-                case "8":
-                    processAddVehiclesRequest();
-                    break;
-                case "9":
-                    processRemoveVehicleRequest();
-                    break;
-                case "10":
-                    System.out.println("Thank you for choosing CarWorld enterprise.");
-                default:
-                    System.out.println("Notice! Invalid input!");
+        Scanner scanner = new Scanner(System.in);
+        boolean running = true;
+        while (running) {
+            System.out.println("Welcome to CarWorld Enterprise");
+            System.out.println("Choose an option");
+            System.out.println("1) Search within price range.");
+            System.out.println("2) Search within make and model");
+            System.out.println("3) Search within year range");
+            System.out.println("4) Search within certain color");
+            System.out.println("5) Search within a certain mileage");
+            System.out.println("6) Search within a certain vehicle type");
+            System.out.println("7) Search all vehicles");
+            System.out.println("8) Add vehicle");
+            System.out.println("9) Remove vehicle");
+            System.out.println("X) Exit");
+            String input = scanner.nextLine().trim();
+            switch (input.toLowerCase()) {
+                case "1" -> processGetByPriceRequest();
+                case "2" -> processGetByMakeModelRequest();
+                case "3" -> processGetByYearRequest();
+                case "4" -> processGetByYColorRequest();
+                case "5" -> processGetByMileageRequest();
+                case "6" -> processGetByVehicleTypeRequest();
+                case "7" -> processGetAllVehiclesRequest();
+                case "8" -> processAddVehiclesRequest();
+                case "9" -> processRemoveVehicleRequest();
+                case "X" -> running = false;
+                default -> System.out.println("Invalid option");
             }
         }
+        scanner.close();
     }
 
     public void processGetByPriceRequest() {
@@ -108,9 +85,10 @@ public class userInterface {
         DealerShipFile_Manager fileManager = new DealerShipFile_Manager();
         dealerShip = fileManager.getDealerShip();
     }
-    private void displayVehicles(List <Vehicle> vehicles){
+
+    private void displayVehicles(List<Vehicle> vehicles) {
         for (Vehicle vehicle : vehicles) {
-            System.out.println(vehicles);
+            System.out.println(vehicle);
         }
     }
 }

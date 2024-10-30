@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DealerShip {
-    private String name;
-    private String address;
-    private String cell;
+    private final String name;
+    private final String address;
+    private final String cell;
 
-    private static List<Vehicle> inventory;
+    private final List<Vehicle> inventory;
 
 
     public DealerShip(String name, String address, String cell) {
@@ -37,7 +37,7 @@ public class DealerShip {
         return getVehicleByType(vehicleType);
     }
     public List<Vehicle> getAllVehicles() {
-        return getAllVehicles();
+        return inventory;
     }
     public void addVehicle(Vehicle vehicle) {
         inventory.add(vehicle);
