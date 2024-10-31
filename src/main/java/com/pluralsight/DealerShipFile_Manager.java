@@ -1,8 +1,10 @@
 package com.pluralsight;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,30 +19,28 @@ public class DealerShipFile_Manager {
             BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME));
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split("\\|");
-                if (parts.length == 3) {
-                    String name = parts[0];
-                    String address = parts[1];
-                    String cell = parts[2];
+                String[] enterpriseParts = line.split("\\|");
+                if (enterpriseParts.length == 3) {
+                    String name = enterpriseParts[0];
+                    String address = enterpriseParts[1];
+                    String cell = enterpriseParts[2];
                     dealerShip = new DealerShip(name, address, cell);
-
-
                 }
             }
 
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split("\\|");
-                if (parts.length == 8) {
-                    int vin = Integer.parseInt(parts[0]);
-                    int year = Integer.parseInt(parts[1]);
-                    String make = parts[2];
-                    String model = parts[3];
-                    String vehicleType = parts[4];
-                    String color = parts[5];
-                    int odometer = Integer.parseInt(parts[6]);
-                    double price = Double.parseDouble(parts[7]);
+                String[] carParts = line.split("\\|");
+                if (carParts.length == 8) {
+                    int vin = Integer.parseInt(carParts[0]);
+                    int year = Integer.parseInt(carParts[1]);
+                    String make = carParts[2];
+                    String model = carParts[3];
+                    String vehicleType = carParts[4];
+                    String color = carParts[5];
+                    int mileage = Integer.parseInt(carParts[6]);
+                    double price = Double.parseDouble(carParts[7]);
 
-                    Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+                    Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, mileage, price);
                     vehicles.add(vehicle);
                 }
 
@@ -54,6 +54,17 @@ public class DealerShipFile_Manager {
         }
         return dealerShip;
     }
-    public void saveDealerShip(String dealership){
+    public void saveDealerShip(DealerShip dealerShip){
+        List<Vehicle>inventory = dealerShip.getInventory();
+        try(BufferedWriter write = new BufferedWriter(new FileWriter(FILE_NAME))) {
+            for (Vehicle vehicle : inventory) {
+                String line = vehicle.getVin() + "," + vehicle.getMake() + ", " + vehicle.getModel() + ", " + vehicle.getVehicleType()
+                        + ", " + vehicle.getColor() + ", " + vehicle.getMileage() + ", " + vehicle.getPrice();
+            }
+
+        }catch (Exception e){
+            System.err.println("Notice trouble writing to file!");
+        }
+
     }
 }

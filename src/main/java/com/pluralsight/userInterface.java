@@ -15,7 +15,7 @@ public class userInterface {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
         while (running) {
-            System.out.println("Welcome to CarWorld Enterprise");
+            System.out.println("Welcome to CarWorld Enterprise\n");
             System.out.println("Choose an option");
             System.out.println("1) Search within price range.");
             System.out.println("2) Search within make and model");
@@ -26,7 +26,8 @@ public class userInterface {
             System.out.println("7) Search all vehicles");
             System.out.println("8) Add vehicle");
             System.out.println("9) Remove vehicle");
-            System.out.println("X) Exit");
+            System.out.println("0) Exit");
+
             String input = scanner.nextLine().trim();
             switch (input.toLowerCase()) {
                 case "1" -> processGetByPriceRequest();
@@ -55,7 +56,7 @@ public class userInterface {
         List<Vehicle> vehicles = dealerShip.getVehiclesByPrice(minPrice, maxPrice);
         displayVehicles(vehicles);
 
-        response.close();
+
     }
 
     public void processGetByMakeModelRequest() {
@@ -68,19 +69,18 @@ public class userInterface {
         List<Vehicle> vehicles = dealerShip.getVehiclesByMakeModel(make, model);
         displayVehicles(vehicles);
 
-        response.close();
     }
 
     public void processGetByYearRequest() {
         Scanner response = new Scanner(System.in);
         System.out.println("Enter init year: ");
-        double vehiclePreviousYear = response.nextDouble();
+        int vehiclePreviousYear = response.nextInt();
         System.out.println("Enter preferred year");
-        double currentYear = response.nextDouble();
+        int currentYear = response.nextInt();
         List<Vehicle> vehicles = dealerShip.getVehiclesByYear(vehiclePreviousYear,currentYear);
         displayVehicles(vehicles);
 
-        response.close();
+
     }
 
     public void processGetByYColorRequest() {
@@ -90,7 +90,7 @@ public class userInterface {
         List<Vehicle> vehicles = dealerShip.getVehiclesByColor(colorOfVehicle);
         displayVehicles(vehicles);
 
-        response.close();
+
     }
 
     public void processGetByMileageRequest() {
@@ -103,7 +103,7 @@ public class userInterface {
         List<Vehicle> vehicles = dealerShip.getVehiclesByMileage(minVehicleMileage,maxVehicleMileage);
         displayVehicles(vehicles);
 
-        response.close();
+
     }
 
     public void processGetByVehicleTypeRequest() {
@@ -113,13 +113,11 @@ public class userInterface {
         List<Vehicle> vehicles = dealerShip.getVehiclesByType(vehicleType);
         displayVehicles(vehicles);
 
-        response.close();
     }
 
     public void processGetAllVehiclesRequest() {
         List<Vehicle> allVehicles = dealerShip.getAllVehicles();
         displayVehicles(allVehicles);
-
 
     }
 

@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,11 +37,12 @@ public class DealerShip {
         return vehiclesByMakeModel;
     }
 
-    public List<Vehicle> getVehiclesByYear(double min, double max) {
+    public List<Vehicle> getVehiclesByYear(int min, int max) {
         List<Vehicle> vehiclesByYear = new ArrayList<>();
         for (Vehicle vehicle : inventory) {
-           double year = vehicle.getYear();
-            if (year >= min && year <= max) {
+           int minYear = 0;
+           int maxYear = LocalDate.MAX.getYear();
+            if (minYear >= min && maxYear <= max) {
                 vehiclesByYear.add(vehicle);
             }
         }
@@ -79,7 +81,7 @@ public class DealerShip {
     }
 
     public List<Vehicle> getAllVehicles() {
-        return new ArrayList<>(inventory); // Return a copy for safety
+        return new ArrayList<>(inventory);
     }
 
     public void addVehicle(Vehicle vehicle) {
@@ -93,6 +95,10 @@ public class DealerShip {
         } else {
             System.out.println("Vehicle not found in inventory.");
         }
+    }
+
+    public List<Vehicle> getInventory() {
+        return inventory;
     }
 
     @Override
