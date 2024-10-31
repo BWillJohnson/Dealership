@@ -122,7 +122,33 @@ public class userInterface {
     }
 
     public void processAddVehiclesRequest() {
+      Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Enter vehicle make: ");
+        String make = scanner.nextLine();
+
+        System.out.print("Enter vehicle model: ");
+        String model = scanner.nextLine();
+
+        System.out.print("Enter vehicle year: ");
+        int year = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("Enter vehicle price: ");
+        double price = Double.parseDouble(scanner.nextLine());
+
+        System.out.print("Enter vehicle color: ");
+        String color = scanner.nextLine();
+
+        System.out.print("Enter vehicle mileage: ");
+        double mileage = Double.parseDouble(scanner.nextLine());
+
+        System.out.print("Enter vehicle type: ");
+        String type = scanner.nextLine();
+
+       Vehicle userVehicle= new Vehicle(make,model,year,price,color,mileage,type);
+
+       boolean succes = dealerShip.addVehicle(userVehicle);
+       if (succes) = dealerShip.addVehicle(new Vehicle())
     }
 
     public void processRemoveVehicleRequest() {

@@ -84,9 +84,21 @@ public class DealerShip {
         return new ArrayList<>(inventory);
     }
 
-    public void addVehicle(Vehicle vehicle) {
-        inventory.add(vehicle);
-        System.out.println(vehicle + " - Notice: Vehicle has been added to Dealership inventory.");
+    public boolean addVehicle(Vehicle vehicle) {
+        if (vehicle == null){
+            System.err.println("ERROR! can not add a empty amount of vehicle");
+        return false;
+        }
+        for (Vehicle v : inventory) {
+            if (v.equals(vehicle)) {
+                System.out.println("Notice: vehicle  exists in inventory");
+                return false;
+            }
+            inventory.add(vehicle);
+            System.out.println(vehicle + " - Notice: Vehicle has been added to Dealership inventory.");
+            return true;
+        }
+        return addVehicle(vehicle);
     }
 
     public void removeVehicle(Vehicle vehicle) {
